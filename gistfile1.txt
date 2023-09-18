@@ -1,0 +1,48 @@
+import math
+
+
+def Find(a):
+    match a:
+        case 'sqrt':
+            in_sqrt = int(input('Введите число: '))
+            ret = math.sqrt(in_sqrt)
+        case 'factorial':
+            in_factorial = int(input('Введите число: '))
+            ret = math.factorial(in_factorial)
+        case 'cos':
+            in_cos = int(input('Введите число: '))
+            ret = math.cos(in_cos)
+        case 'sin':
+            in_sin = int(input('Введите число: '))
+            ret = math.sin(in_sin)
+        case 'tg':
+            in_tan = int(input('Введите число: '))
+            ret = math.tan(in_tan)
+        case 'ctg':
+            in_ctg = int(input('Введите число: '))
+            ret = 1/math.tan(in_ctg)
+        case _:
+            ret = "Нет такой команды"
+
+    return  ret
+
+
+work = True
+while work:
+    print('Вы хотите написать простое выражение')
+    print('Да  Нет')
+    b = input()
+    if ('es' or 'Да' or 'да') in b:
+        try:
+            a = eval(input('Введите выражение: '))
+        except:
+            print('Не могу выполнить операцию')
+    else:
+        print("Пожалуйста ввыедите апперацию, которую вы хотите выполнить ")
+        to_do = input('Введите нужную операцию: ')
+        a = Find(to_do)
+        
+    print(a)
+    out = input('Завершить?')
+    if out == ('yes' or 'Yes' or 'Да' or 'да'):
+        work = False
